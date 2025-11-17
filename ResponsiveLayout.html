@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glassmorphism Website</title>
+    <title>3D Glassmorphism Website</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
@@ -14,21 +14,18 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- AOS Animation -->
+    <!-- AOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 
     <style>
-        /* ====== GLOBAL ====== */
         body {
-            margin: 0;
-            padding: 0;
+            background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+            font-family: Poppins, sans-serif;
+            color: white;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #1b1b1b, #111);
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
         }
 
-        /* ====== SIDEBAR (Glassmorphism) ====== */
+        /* Sidebar */
         .sidebar {
             height: 100vh;
             width: 240px;
@@ -39,69 +36,68 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
             border-right: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 4px 0 20px rgba(0,0,0,0.4);
         }
         .sidebar a {
             display: block;
             padding: 18px 25px;
+            color: #aaa;
             text-decoration: none;
-            color: #ccc;
-            font-size: 16px;
-            transition: 0.3s;
+            transition: .3s;
         }
         .sidebar a:hover {
-            color: #fff;
             background: rgba(255,255,255,0.1);
+            color: white;
         }
 
-        /* ====== CONTENT AREA ====== */
         .content-area {
             margin-left: 240px;
         }
 
-        /* ====== NAVBAR (Glass) ====== */
+        /* NAVBAR */
         nav.navbar {
             backdrop-filter: blur(10px);
-            background: rgba(0,0,0,0.4) !important;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.4);
+            border-bottom: 1px solid rgba(255,255,255,0.15);
         }
 
-        /* ====== HERO SLIDER ====== */
-        .carousel-item {
-            height: 75vh;
+        /* 3D HERO */
+        .hero {
+            height: 80vh;
+            background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-        .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(60%);
-        }
-        .carousel-caption h1 {
-            font-size: 3rem;
+
+        .hero-text {
+            font-size: 4rem;
             font-weight: 700;
-            text-shadow: 0px 0px 10px #000;
+            text-shadow: 0px 0px 20px black;
+            transition: transform 0.2s ease-out;
+            user-select: none;
         }
 
-        /* ====== GLASS CARDS ====== */
+        /* 3D GLASS CARDS */
         .glass-card {
             background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
-            transition: 0.4s;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform .2s ease, box-shadow .2s ease;
+            transform-style: preserve-3d;
         }
 
         .glass-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.12);
+            transform: rotateY(12deg) rotateX(12deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        .glass-card i {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        /* ====== CONTACT FORM (Glass) ====== */
+        /* Contact Form */
         .glass-form {
             background: rgba(255,255,255,0.07);
             padding: 25px;
@@ -110,10 +106,11 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* ====== FOOTER ====== */
         footer {
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -133,77 +130,44 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-bold text-white" href="#"><i class="fa-solid fa-globe"></i> MySite</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div id="nav" class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-            </ul>
-        </div>
+        <a class="navbar-brand fw-bold text-white" href="#"><i class="fa-solid fa-cube"></i> 3D Site</a>
     </div>
 </nav>
 
-<!-- HERO SLIDER -->
-<div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
-
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-            <div class="carousel-caption">
-                <h1>Welcome to MySite</h1>
-            </div>
-        </div>
-
-        <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df">
-            <div class="carousel-caption">
-                <h1>Modern Glass UI</h1>
-            </div>
-        </div>
-
-        <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
-            <div class="carousel-caption">
-                <h1>Sleek & Professional</h1>
-            </div>
-        </div>
+<!-- 3D HERO -->
+<div class="hero" id="hero-section">
+    <div class="hero-text" id="heroText">
+        3D Glass Website
     </div>
-
 </div>
+
 
 <!-- FEATURES -->
 <section id="features" class="container py-5">
-    <h2 class="text-center mb-4 fw-bold" data-aos="fade-up">Features</h2>
+    <h2 class="text-center fw-bold mb-4" data-aos="fade-up">3D Features</h2>
 
     <div class="row g-4">
-        <div class="col-md-4" data-aos="fade-right">
-            <div class="glass-card p-4 text-center shadow">
-                <i class="fa-solid fa-mobile-screen text-primary"></i>
-                <h4>Responsive</h4>
-                <p>Fully responsive glass design.</p>
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="glass-card">
+                <i class="fa-solid fa-mobile-screen fa-3x mb-3"></i>
+                <h4>3D Responsive</h4>
+                <p>Smooth 3D tilt responsive layout.</p>
             </div>
         </div>
 
-        <div class="col-md-4" data-aos="fade-up">
-            <div class="glass-card p-4 text-center shadow">
-                <i class="fa-solid fa-code text-info"></i>
-                <h4>Clean Code</h4>
-                <p>Modern and easy-to-read code.</p>
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="glass-card">
+                <i class="fa-solid fa-layer-group fa-3x mb-3"></i>
+                <h4>Glassmorphism</h4>
+                <p>Modern blur + glass effect UI.</p>
             </div>
         </div>
 
-        <div class="col-md-4" data-aos="fade-left">
-            <div class="glass-card p-4 text-center shadow">
-                <i class="fa-solid fa-rocket text-danger"></i>
-                <h4>Fast</h4>
-                <p>Optimized for best performance.</p>
+        <div class="col-md-4" data-aos="zoom-in">
+            <div class="glass-card">
+                <i class="fa-solid fa-cubes fa-3x mb-3"></i>
+                <h4>3D Hover</h4>
+                <p>Cards rotate in 3D when hovered.</p>
             </div>
         </div>
     </div>
@@ -211,9 +175,9 @@
 
 <!-- ABOUT -->
 <section id="about" class="container py-5">
-    <h2 class="text-center fw-bold mb-4" data-aos="zoom-in">About Us</h2>
+    <h2 class="text-center fw-bold mb-4" data-aos="fade-up">About</h2>
     <p class="text-center" data-aos="fade-up">
-        A fully modern website built using Glassmorphism UI, animations, and premium components.
+        This website uses premium 3D parallax, 3D tilt animations and glass UI.
     </p>
 </section>
 
@@ -232,15 +196,14 @@
         </div>
 
         <div class="col-md-6" data-aos="fade-left">
-            <iframe src="https://maps.google.com/maps?q=karachi&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-            width="100%" height="350" style="border:0; border-radius:15px;"></iframe>
+            <iframe src="https://maps.google.com/maps?q=karachi&z=13&output=embed"
+            width="100%" height="350" style="border-radius:15px;"></iframe>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center py-3">
-    © 2025 MySite – All Rights Reserved.
+<footer>
+    © 2025 | 3D Glassmorphism Website
 </footer>
 
 </div>
@@ -250,7 +213,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
 <script>
-    AOS.init();
+AOS.init();
+
+/* 3D PARALLAX HERO TEXT */
+document.addEventListener("mousemove", (event) => {
+    const text = document.getElementById("heroText");
+
+    let x = (window.innerWidth / 2 - event.pageX) / 20;
+    let y = (window.innerHeight / 2 - event.pageY) / 20;
+
+    text.style.transform = `translateX(${-x}px) translateY(${y}px) rotateX(${y}deg) rotateY(${x}deg)`;
+});
 </script>
 
 </body>
